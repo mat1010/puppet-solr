@@ -8,50 +8,31 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class solr (
-  $version,
-  $mirror,
-  $extract_dir,
-  $var_dir,
-  $solr_home,
-  $log_dir,
-  $solr_port,
-  $solr_user,
-  $install_dir,
-  $java_home,
-  $java_mem,
-  $cloud,
-  $upgrade,
-  $zk_ensemble,
-  $zk_chroot,
-  $zk_timeout,
-  $solr_host,
-  $solr_time,
-  $enable_remote_jmx,
-  $service_name,
-  $solr_base,
+  String $version,
+  Variant[Stdlib::HTTPUrl,Stdlib::HTTPSUrl] $mirror,
+  Stdlib::Compat::Absolute_path $extract_dir,
+  Stdlib::Compat::Absolute_path $var_dir,
+  Stdlib::Compat::Absolute_path $solr_home,
+  Stdlib::Compat::Absolute_path $log_dir,
+  Integer $solr_port,
+  String $solr_user,
+  Stdlib::Compat::Absolute_path $install_dir,
+  Stdlib::Compat::Absolute_path $java_home,
+  String $java_mem,
+  Boolean $cloud,
+  Boolean $upgrade,
+  String $zk_ensemble,
+  String $zk_chroot,
+  Integer $zk_timeout,
+  String $solr_host,
+  String $solr_time,
+  Boolean $enable_remote_jmx,
+  String $service_name,
+  Stdlib::Compat::Absolute_path $solr_base,
   Optional[Array] $gc_log_opts,
   Optional[Array] $gc_tune,
   Optional[Array] $solr_opts,
 ) {
-
-  validate_string( $version )
-  validate_string( $mirror )
-  validate_absolute_path( $extract_dir )
-  validate_absolute_path( $var_dir )
-  validate_absolute_path( $solr_home )
-  validate_absolute_path( $log_dir )
-  validate_string( $solr_port )
-  validate_string( $solr_user )
-  validate_absolute_path( $install_dir )
-  validate_absolute_path( $solr_base )
-  validate_string( $zk_ensemble )
-  validate_string( $zk_chroot )
-  validate_string( $zk_timeout )
-  validate_string( $solr_host )
-  validate_string( $solr_time )
-  validate_bool( $upgrade )
-  validate_bool( $enable_remote_jmx )
-
   class { '::solr::install': }
   ->class { '::solr::config': }
   ~>class { '::solr::service': }
