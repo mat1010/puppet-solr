@@ -1,4 +1,0 @@
-UNRELEASED
-- make default configuration compatible with JDK 11
-- support log4j2 on SOLR >= 7.4.0
-- new parameter: $solr_opts

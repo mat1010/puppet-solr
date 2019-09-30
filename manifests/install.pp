@@ -32,8 +32,8 @@ class solr::install {
     incl    => "/opt/staging/solr-${solr::version}/bin/install_solr_service.sh",
     changes => "rm *[.='${_match_service}']",
     require => Staging::Deploy["solr-${solr::version}.tgz"],
-  } ->
-  exec { 'run solr install script':
+  }
+  ->exec { 'run solr install script':
     command => "/opt/staging/solr-${solr::version}/bin/install_solr_service.sh /opt/staging/solr-${solr::version}.tgz -i ${solr::extract_dir} -d ${solr::var_dir} -u ${solr::solr_user} -s ${solr::service_name} -p ${solr::solr_port} ${upgrade_flag}",
     cwd     => "/opt/staging/solr-${solr::version}",
     creates => "${solr::extract_dir}/solr-${solr::version}",

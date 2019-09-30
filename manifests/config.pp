@@ -49,8 +49,8 @@ class solr::config {
     ensure  => file,
     mode    => '0744',
     content => template('solr/solr.init.erb'),
-  } ~>
-  exec { 'systemctl daemon-reload # for solr':
+  }
+  ~>exec { 'systemctl daemon-reload # for solr':
     refreshonly => true,
     path        => $::path,
     notify      => Service[$solr::service_name]

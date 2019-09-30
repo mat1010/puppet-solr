@@ -52,8 +52,8 @@ class solr (
   validate_bool( $upgrade )
   validate_bool( $enable_remote_jmx )
 
-  class { '::solr::install': } ->
-  class { '::solr::config': } ~>
-  class { '::solr::service': } ->
-  Class['::solr']
+  class { '::solr::install': }
+  ->class { '::solr::config': }
+  ~>class { '::solr::service': }
+  ->Class['::solr']
 }
