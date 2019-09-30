@@ -1,12 +1,12 @@
 {
-  "name": "spacepants-solr",
+  "name": "fraenki-solr",
   "version": "0.1.0",
-  "author": "Paul Bailey",
-  "summary": "",
+  "author": "Frank Wall",
+  "summary": "Installs and configures the Solr search platform",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": "",
-  "issues_url": "",
+  "source": "https://github.com/fraenki/puppet-solr",
+  "project_page": "https://github.com/fraenki/puppet-solr",
+  "issues_url": "https://github.com/fraenki/puppet-solr/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",

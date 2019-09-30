@@ -10,6 +10,7 @@
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
+7. [License and Copyright](#license-and-copyright)
 
 ## Overview
 
@@ -58,3 +59,9 @@ Since your module is awesome, other users will want to play with it. Let them kn
 ## Release Notes/Contributors/Etc **Optional**
 
 If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header. 
+
+## License and Copyright
+Copyright (C) 2016-2019 Frank Wall github@moov.de
+Copyright (C) 2015-2016 Paul Bailey
+
+See the LICENSE file at the top-level directory of this distribution.
