@@ -1,1 +1,40 @@
 ---
+solr::cloud: undef
+solr::enable_remote_jmx: false
+solr::extract_dir: '/opt'
+solr::gc_log_opts:
+  - '-verbose:gc'
+  - '-Xlog:gc'
+solr::gc_tune:
+  - '-XX:NewRatio=3'
+  - '-XX:SurvivorRatio=4'
+  - '-XX:TargetSurvivorRatio=90'
+  - '-XX:MaxTenuringThreshold=8'
+  - '-XX:+UseConcMarkSweepGC'
+  - '-XX:ConcGCThreads=4'
+  - '-XX:ParallelGCThreads=4'
+  - '-XX:+CMSScavengeBeforeRemark'
+  - '-XX:PretenureSizeThreshold=64m'
+  - '-XX:+UseCMSInitiatingOccupancyOnly'
+  - '-XX:CMSInitiatingOccupancyFraction=50'
+  - '-XX:CMSMaxAbortablePrecleanTime=6000'
+  - '-XX:+CMSParallelRemarkEnabled'
+  - '-XX:+ParallelRefProcEnabled'
+solr::install_dir: "/opt/solr-%{lookup('solr::version')}"
+solr::java_home: undef
+solr::java_mem: '-Xms512m -Xmx512m'
+solr::log_dir: '/var/log/solr'
+solr::mirror: 'http://www.apache.org/dist/lucene/solr'
+solr::service_name: 'solr'
+solr::solr_base: "%{lookup('solr::extract_dir')}/%{lookup('solr::service_name')}"
+solr::solr_home: "%{lookup('solr::var_dir')}/data"
+solr::solr_host: "%{networking.ip}"
+solr::solr_port: '8983'
+solr::solr_time: 'UTC'
+solr::solr_user: 'solr'
+solr::upgrade: false
+solr::var_dir: '/var/solr'
+solr::version: '5.1.0'
+solr::zk_chroot: 'solrcloud'
+solr::zk_ensemble: undef
+solr::zk_timeout: '15000'
