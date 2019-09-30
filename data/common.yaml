@@ -34,7 +34,7 @@ solr::solr_time: 'UTC'
 solr::solr_user: 'solr'
 solr::upgrade: false
 solr::var_dir: '/var/solr'
-solr::version: '5.1.0'
+solr::version: '8.2.0'
 solr::zk_chroot: 'solrcloud'
 solr::zk_ensemble: undef
 solr::zk_timeout: '15000'
