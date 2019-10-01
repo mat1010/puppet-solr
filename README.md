@@ -15,9 +15,10 @@
         - [solr](#class-solr)
     - [Private classes](#private-classes)
         - [solr::config](#class-solrconfig)
-        - [solr::core](#class-solrcore)
         - [solr::install](#class-solrinstall)
         - [solr::service](#class-solrservice)
+    - [Defined Types](#defined-types)
+        - [solr::core](#class-solrcore)
 5. [Development](#development)
     - [Contributing](#contributing)
 6. [License and Copyright](#license-and-copyright)
@@ -129,6 +130,11 @@ It is recommended to use [deric/puppet-zookeeper](https://forge.puppet.com/deric
 #### Class: `solr::install`
 
 #### Class: `solr::service`
+
+### Defined Types
+
+#### Define: `solr::core`
+This define creates a Solr core or collection.
 
 ## Development
 

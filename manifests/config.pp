@@ -1,6 +1,6 @@
-# == Class solr::config
+# @api private
 #
-# This class is called from solr for service config.
+# This class manages the service config.
 #
 class solr::config {
   # From version 7.4.0 onwards, SOLR uses log4j2.

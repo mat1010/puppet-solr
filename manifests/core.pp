@@ -1,13 +1,8 @@
-# == Define solr::core
-#
-# This define creates a solr core or collection.
+# This define creates a Solr core or collection.
 #
 define solr::core (
-  $core_name = $name,
+  String $core_name = $name,
 ) {
-
-  validate_string($core_name)
-
   require ::solr
 
   exec { "create ${core_name} core":

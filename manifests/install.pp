@@ -1,6 +1,6 @@
-# == Class solr::install
+# @api private
 #
-# This class is called from solr for install.
+# This class installs Solr.
 #
 class solr::install {
   include 'archive'
@@ -33,6 +33,7 @@ class solr::install {
     creates => "${solr::extract_dir}/solr-${solr::version}",
     require => Archive["/opt/staging/solr-${solr::version}.tgz"],
   }
+
   file { $solr::var_dir:
     ensure  => directory,
     owner   => $solr::solr_user,
@@ -40,6 +41,7 @@ class solr::install {
     recurse => true,
     require => Exec['run solr install script'],
   }
+
   file { $solr::log_dir:
     ensure  => directory,
     owner   => $solr::solr_user,

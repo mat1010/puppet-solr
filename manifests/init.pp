@@ -1,11 +1,4 @@
-# == Class: solr
-#
-# Full description of class solr here.
-#
-# === Parameters
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
+# Install and configure the Solr search platform.
 #
 class solr (
   String $version,
