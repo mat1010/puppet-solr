@@ -1,6 +1,6 @@
 {
   "name": "fraenki-solr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Frank Wall",
   "summary": "Installs and configures the Solr search platform",
   "license": "Apache-2.0",
@@ -42,7 +42,8 @@
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8"
       ]
     },
     {
