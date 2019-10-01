@@ -29,7 +29,7 @@ solr::solr_base: "%{lookup('solr::extract_dir')}/%{lookup('solr::service_name')}
 solr::solr_home: "%{lookup('solr::var_dir')}/data"
 solr::solr_host: "%{fqdn}"
 solr::solr_opts: ~
-solr::solr_port: '8983'
+solr::solr_port: 8983
 solr::solr_time: 'UTC'
 solr::solr_user: 'solr'
 solr::upgrade: false
@@ -37,4 +37,4 @@ solr::var_dir: '/var/solr'
 solr::version: '8.2.0'
 solr::zk_chroot: 'solrcloud'
 solr::zk_ensemble: ~
-solr::zk_timeout: '15000'
+solr::zk_timeout: 15000
