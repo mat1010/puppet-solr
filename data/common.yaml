@@ -20,7 +20,6 @@ solr::gc_tune:
   - '-XX:CMSMaxAbortablePrecleanTime=6000'
   - '-XX:+CMSParallelRemarkEnabled'
   - '-XX:+ParallelRefProcEnabled'
-solr::install_dir: "/opt/solr-%{lookup('solr::version')}"
 solr::java_home: ~
 solr::java_mem: '-Xms512m -Xmx512m'
 solr::log_dir: '/var/log/solr'

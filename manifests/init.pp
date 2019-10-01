@@ -16,7 +16,6 @@ class solr (
   Stdlib::Compat::Absolute_path $log_dir,
   Integer $solr_port,
   String $solr_user,
-  Stdlib::Compat::Absolute_path $install_dir,
   String $java_mem,
   Boolean $cloud,
   Boolean $upgrade,
