@@ -17,7 +17,6 @@ class solr (
   Integer $solr_port,
   String $solr_user,
   Stdlib::Compat::Absolute_path $install_dir,
-  Stdlib::Compat::Absolute_path $java_home,
   String $java_mem,
   Boolean $cloud,
   Boolean $upgrade,
@@ -31,6 +30,7 @@ class solr (
   Stdlib::Compat::Absolute_path $solr_base,
   Optional[Array] $gc_log_opts,
   Optional[Array] $gc_tune,
+  Optional[Stdlib::Compat::Absolute_path] $java_home,
   Optional[Array] $solr_opts,
 ) {
   class { '::solr::install': }
