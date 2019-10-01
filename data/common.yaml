@@ -21,7 +21,7 @@ solr::gc_tune:
   - '-XX:+CMSParallelRemarkEnabled'
   - '-XX:+ParallelRefProcEnabled'
 solr::install_dir: "/opt/solr-%{lookup('solr::version')}"
-solr::java_home: undef
+solr::java_home: ~
 solr::java_mem: '-Xms512m -Xmx512m'
 solr::log_dir: '/var/log/solr'
 solr::mirror: 'http://www.apache.org/dist/lucene/solr'
@@ -29,6 +29,7 @@ solr::service_name: 'solr'
 solr::solr_base: "%{lookup('solr::extract_dir')}/%{lookup('solr::service_name')}"
 solr::solr_home: "%{lookup('solr::var_dir')}/data"
 solr::solr_host: "%{fqdn}"
+solr::solr_opts: ~
 solr::solr_port: '8983'
 solr::solr_time: 'UTC'
 solr::solr_user: 'solr'
@@ -36,5 +37,5 @@ solr::upgrade: false
 solr::var_dir: '/var/solr'
 solr::version: '8.2.0'
 solr::zk_chroot: 'solrcloud'
-solr::zk_ensemble: undef
+solr::zk_ensemble: ~
 solr::zk_timeout: '15000'
