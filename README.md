@@ -42,7 +42,7 @@ Furthermore, a number of simple options are available:
 
     class { 'solr':
         # Change version
-        version => '8.1.0',
+        version => '8.2.0',
 
         # Allow automatic upgrades (when changing $version)
         upgrade => true,
@@ -138,6 +138,7 @@ Please use the GitHub issues functionality to report any bugs or requests for ne
 
 ## License and Copyright
 Copyright (C) 2016-2019 Frank Wall github@moov.de
+
 Copyright (C) 2015-2016 Paul Bailey
 
 See the LICENSE file at the top-level directory of this distribution.
