@@ -30,6 +30,7 @@ This module will install and configure the Solr search platform.
 ## Requirements
 
 * Puppet 5 or higher
+* Tested with Solr 7.x and 8.x
 
 ## Usage
 
