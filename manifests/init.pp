@@ -20,6 +20,10 @@ class solr (
   Boolean $enable_remote_jmx,
   String $service_name,
   Stdlib::Compat::Absolute_path $solr_base,
+  Boolean $manage_custom_plugins,
+  Array $custom_plugins,
+  Stdlib::Compat::Absolute_path $custom_plugins_dir,
+  String $custom_plugins_id,
   String $staging_dir,
   Optional[Array] $gc_log_opts,
   Optional[Array] $gc_tune,
@@ -28,6 +32,7 @@ class solr (
 ) {
   class { '::solr::install': }
   ->class { '::solr::config': }
-  ~>class { '::solr::service': }
+  ->class { '::solr::customplugins': }
+  ->class { '::solr::service': }
   ->Class['::solr']
 }

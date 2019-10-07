@@ -79,8 +79,8 @@ ENABLE_REMOTE_JMX_OPTS="<%= $solr::enable_remote_jmx %>"
 # Anything you add to the SOLR_OPTS variable will be included in the java
 # start command line as-is, in ADDITION to other options. If you specify the
 # -a option on start script, those options will be appended as well. Examples:
-<% if $solr::solr_opts {-%>
-SOLR_OPTS="$SOLR_OPTS <%= $solr::solr_opts.join(' ') %>"
+<% if $solr::config::solr_opts {-%>
+SOLR_OPTS="$SOLR_OPTS <%= $solr::config::solr_opts.join(' ') %>"
 <% } else {-%>
 #SOLR_OPTS="$SOLR_OPTS -Dsolr.autoSoftCommit.maxTime=3000"
 #SOLR_OPTS="$SOLR_OPTS -Dsolr.autoCommit.maxTime=60000"

@@ -12,6 +12,7 @@ class solr::config {
       owner   => $solr::solr_user,
       group   => $solr::solr_user,
       content => template("solr/${log4jconfig}.erb"),
+      notify  => Service[$solr::service_name]
     }
     file { "${solr::var_dir}/${log4jconfig}":
       ensure  => file,
@@ -19,6 +20,7 @@ class solr::config {
       owner   => $solr::solr_user,
       group   => $solr::solr_user,
       content => template("solr/${log4jconfig}.erb"),
+      notify  => Service[$solr::service_name]
     }
   } else {
     $log4jconfig = 'log4j2.xml'
@@ -28,6 +30,7 @@ class solr::config {
       owner   => $solr::solr_user,
       group   => $solr::solr_user,
       content => template("solr/${log4jconfig}.erb"),
+      notify  => Service[$solr::service_name]
     }
     file { "${solr::var_dir}/${log4jconfig}":
       ensure  => file,
@@ -35,7 +38,16 @@ class solr::config {
       owner   => $solr::solr_user,
       group   => $solr::solr_user,
       content => template("solr/${log4jconfig}.erb"),
+      notify  => Service[$solr::service_name]
     }
+  }
+
+  # When managing custom plugins, add the required startup option.
+  if ($solr::manage_custom_plugins and !empty($solr::custom_plugins)) {
+    $solr_opts = union($solr::solr_opts,["-D${solr::custom_plugins_id}=${solr::custom_plugins_dir}"])
+  } else {
+    # When not managing custom plugins, pass options unmodified.
+    $solr_opts = $solr::solr_opts
   }
 
   file { "${solr::var_dir}/solr.in.sh":
@@ -44,6 +56,7 @@ class solr::config {
     owner   => $solr::solr_user,
     group   => $solr::solr_user,
     content => epp('solr/solr.in.sh.epp'),
+    notify  => Service[$solr::service_name]
   }
   file { "/etc/init.d/${solr::service_name}":
     ensure  => file,

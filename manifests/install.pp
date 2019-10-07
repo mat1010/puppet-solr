@@ -5,6 +5,11 @@
 class solr::install {
   include 'archive'
 
+  file { $solr::staging_dir:
+    ensure  => directory,
+    recurse => true
+  }
+
   archive { "${solr::staging_dir}/solr-${solr::version}.tgz":
     source       => "${solr::mirror}/${solr::version}/solr-${solr::version}.tgz",
     extract      => true,

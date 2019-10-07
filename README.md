@@ -10,6 +10,7 @@
     - [Beginning with Solr](#beginning-with-solr)
     - [Test Solr](#test-solr)
     - [Solr Cloud](#solr-cloud)
+    - [Custom Plugins](#custom-plugins)
 4. [Reference](#reference)
     - [Public classes](#public-classes)
         - [solr](#class-solr)
@@ -30,7 +31,10 @@ This module will install and configure the Solr search platform.
 ## Requirements
 
 * Puppet 5 or higher
+* Java 8 or higher
 * Tested with Solr 7.x and 8.x
+
+It is recommended to use [puppetlabs/java](https://forge.puppet.com/puppetlabs/java) to manage the Java installation.
 
 ## Usage
 
@@ -91,6 +95,50 @@ This module makes it pretty easy to configure Solr Cloud:
     }
 
 It is recommended to use [deric/puppet-zookeeper](https://forge.puppet.com/deric/zookeeper) to manage the ZooKeeper nodes.
+
+### Custom Plugins
+When using Solr Cloud, you may use this module to manage your [custom plugins](https://lucene.apache.org/solr/guide/8_2/adding-custom-plugins-in-solrcloud-mode.html) with Puppet (instead of using the API):
+
+    class { 'solr':
+        # Setup Solr cloud
+        cloud       => true,
+        ...
+        # Manage custom plugins
+        manage_custom_plugins => true,
+        custom_plugin_id      => 'solr.custom_plugins.dir',
+        custom_plugins        => [
+          {
+            source        => 'https://my.example.com/company_solr_plugins.tgz',
+            extract       => true,
+            creates       => 'company-search-enhancer-1.0.jar',
+            checksum_type => 'md5',
+            checksum      => 'a5d3ae0781765a702ca274191a4d7c97',
+          },
+          {
+            source        => 'https://my.example.com/more_solr_plugins.tgz',
+            extract       => true,
+            creates       => 'my-private-plugin-2.0.jar',
+            checksum_type => 'md5',
+            checksum      => '7a4e95b26ac41250f8a65c4bf4dd1d25',
+          }
+        ]
+    }
+
+As you can see, the `$custom_plugins` parameter expects options in a format
+that is compatible with [voxpupuli/archive](https://github.com/voxpupuli/puppet-archive).
+
+All custom plugins will automatically be installed and Solr will then be restarted.
+A new environment variable is added to Solr's startup options which points to the
+custom plugins directory. The name of this variable can be adjusted by altering the
+`$custom_plugin_id` parameter.
+
+Note that you need to reference the `$custom_plugin_id` environment variable in
+your configuration in order to actually load the custom plugins in your Solr Core:
+
+      <config>
+        <lib dir="${solr.custom_plugins.dir}" />
+        ...
+      </config>
 
 ## Reference
 
