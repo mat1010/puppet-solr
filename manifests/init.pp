@@ -20,6 +20,7 @@ class solr (
   Boolean $enable_remote_jmx,
   String $service_name,
   Stdlib::Compat::Absolute_path $solr_base,
+  String $staging_dir,
   Optional[Array] $gc_log_opts,
   Optional[Array] $gc_tune,
   Optional[Stdlib::Compat::Absolute_path] $java_home,

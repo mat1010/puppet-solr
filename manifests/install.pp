@@ -5,11 +5,11 @@
 class solr::install {
   include 'archive'
 
-  archive { "/opt/staging/solr-${solr::version}.tgz":
+  archive { "${solr::staging_dir}/solr-${solr::version}.tgz":
     source       => "${solr::mirror}/${solr::version}/solr-${solr::version}.tgz",
     extract      => true,
-    extract_path => '/opt/staging',
-    creates      => "/opt/staging/solr-${solr::version}",
+    extract_path => $solr::staging_dir,
+    creates      => "${solr::staging_dir}/solr-${solr::version}",
     cleanup      => false,
   }
 
@@ -28,10 +28,10 @@ class solr::install {
   }
 
   exec { 'run solr install script':
-    command => "/opt/staging/solr-${solr::version}/bin/install_solr_service.sh /opt/staging/solr-${solr::version}.tgz -i ${solr::extract_dir} -d ${solr::var_dir} -u ${solr::solr_user} -s ${solr::service_name} -p ${solr::solr_port} -n ${upgrade_flag}",
-    cwd     => "/opt/staging/solr-${solr::version}",
+    command => "${solr::staging_dir}/solr-${solr::version}/bin/install_solr_service.sh ${solr::staging_dir}/solr-${solr::version}.tgz -i ${solr::extract_dir} -d ${solr::var_dir} -u ${solr::solr_user} -s ${solr::service_name} -p ${solr::solr_port} -n ${upgrade_flag}",
+    cwd     => "${solr::staging_dir}/solr-${solr::version}",
     creates => "${solr::extract_dir}/solr-${solr::version}",
-    require => Archive["/opt/staging/solr-${solr::version}.tgz"],
+    require => Archive["${solr::staging_dir}/solr-${solr::version}.tgz"],
   }
 
   file { $solr::var_dir:

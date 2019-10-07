@@ -32,6 +32,7 @@ solr::solr_opts: ~
 solr::solr_port: 8983
 solr::solr_time: 'UTC'
 solr::solr_user: 'solr'
+solr::staging_dir: '/opt/staging'
 solr::upgrade: false
 solr::var_dir: '/var/solr'
 solr::version: '8.2.0'
