@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.0] - 2019-10-08
+This is a feature release that may contain backwards incompatible changes.
+
+### Added
+- Add support to manage custom plugins
+- Add new parameters: `$custom_plugins`, `$custom_plugins_dir`, `$custom_plugins_id`, `$manage_custom_plugins`
+- Add new parameter `$staging_dir` to make the staging directory configurable
+
+### Changed
+- Only support Solr 7.x and 8.x (older versions may work but are unsupported)
+
 ## [1.0.0] - 2019-10-01
 This is the first release after forking the module. It should be possible to
 migrate from spacepants/puppet-solr to this version with only minor modifications.
