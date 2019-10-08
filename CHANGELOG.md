@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Use camptocamp/systemd (new dependency) to trigger systemd reloads
+
 ## [2.0.0] - 2019-10-08
 This is a feature release that may contain backwards incompatible changes.
 
