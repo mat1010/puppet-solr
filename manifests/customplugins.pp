@@ -3,6 +3,8 @@
 # This class manages custom plugins for Solr.
 #
 class solr::customplugins {
+  assert_private()
+
   if ($solr::manage_custom_plugins and !empty($solr::custom_plugins)) {
     # Calculate a checksum to know when custom pluginshave changed. This may
     # be overkill for cases where only the sort order was changed, but this is

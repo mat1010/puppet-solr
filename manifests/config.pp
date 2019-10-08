@@ -3,6 +3,8 @@
 # This class manages the service config.
 #
 class solr::config {
+  assert_private()
+
   include systemd::systemctl::daemon_reload
 
   # From version 7.4.0 onwards, SOLR uses log4j2.

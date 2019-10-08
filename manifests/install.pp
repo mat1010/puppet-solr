@@ -3,6 +3,8 @@
 # This class installs Solr.
 #
 class solr::install {
+  assert_private()
+
   include 'archive'
 
   file { $solr::staging_dir:
