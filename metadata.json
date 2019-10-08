@@ -7,7 +7,7 @@
   "source": "https://github.com/fraenki/puppet-solr",
   "project_page": "https://github.com/fraenki/puppet-solr",
   "issues_url": "https://github.com/fraenki/puppet-solr/issues",
-  "tags": ["solr", "lucene", "apache", "search"],
+  "tags": ["solr", "lucene", "apache", "search", "cloud", "plugins"],
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
