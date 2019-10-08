@@ -8,5 +8,6 @@ class solr::service {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
+    subscribe  => File["/etc/init.d/${solr::service_name}"],
   }
 }

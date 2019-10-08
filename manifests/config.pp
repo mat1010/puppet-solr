@@ -3,6 +3,8 @@
 # This class manages the service config.
 #
 class solr::config {
+  include systemd::systemctl::daemon_reload
+
   # From version 7.4.0 onwards, SOLR uses log4j2.
   if (versioncmp($solr::version, '7.4.0') < 0) {
     $log4jconfig = 'log4j.properties'
@@ -63,9 +65,5 @@ class solr::config {
     mode    => '0744',
     content => template('solr/solr.init.erb'),
   }
-  ~>exec { 'systemctl daemon-reload # for solr':
-    refreshonly => true,
-    path        => $::path,
-    notify      => Service[$solr::service_name]
-  }
+  ~> Class['systemd::systemctl::daemon_reload']
 }
