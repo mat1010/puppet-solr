@@ -156,7 +156,7 @@ your configuration in order to actually load the custom plugins in your Solr Cor
 * `log_dir`: Specifies the directory for Solr logs. Valid options: an absolute path. Default: `/var/log/solr`.
 * `mirror`: Specifies the download location for Solr archives. Valid options: a HTTP(S) URL. Default: `http://www.apache.org/dist/lucene/solr`.
 * `service_name`: Specifies the name of the system service that should be setup. Valid options: a string. Default: `solr`.
-* `solr_base`: Internal parameter that is automatically generated. Specifies a symlink that is created by the Solr installer. Internal parameter that is automatically composed and must not be changed. Defaults to: `$extract_dir/$service_name`
+* `solr_base`: Internal parameter, DO NOT USE OR CHANGE! Specifies a symlink that is created by the Solr installer. Defaults to: `$extract_dir/$service_name`
 * `solr_home`: Specifies the Solr data directory. Valid options: an absolute path. Defaults to: `$var_dir/data`.
 * `solr_host`: Specifies the hostname that should be used for Solr. Valid options: a string. Defaults to: `$fqdn`.
 * `solr_opts`: Specifies optional parameters to customize Solr's startup parameters. Valid options: an array. Optional.
