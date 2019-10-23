@@ -12,7 +12,7 @@ class solr (
   String $java_mem,
   Boolean $cloud,
   Boolean $upgrade,
-  String $zk_ensemble,
+  Optional[String] $zk_ensemble,
   String $zk_chroot,
   Integer $zk_timeout,
   String $solr_host,
