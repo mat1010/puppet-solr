@@ -7,7 +7,6 @@
   "source": "https://github.com/fraenki/puppet-solr",
   "project_page": "https://github.com/fraenki/puppet-solr",
   "issues_url": "https://github.com/fraenki/puppet-solr/issues",
-  "tags": ["solr", "lucene", "apache", "search", "cloud", "plugins"],
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
@@ -20,12 +19,6 @@
     {
       "name": "puppet/systemd",
       "version_requirement": ">= 2.6.0 < 3.0.0"
-    }
-  ],
-  "requirements": [
-    {
-      "name": "puppet",
-      "version_requirement": ">= 5.5.0 < 7.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -62,7 +55,21 @@
       "operatingsystem": "Archlinux"
     }
   ],
-  "pdk-version": "1.13.0",
-  "template-url": "pdk-default#1.13.0",
-  "template-ref": "1.13.0-0-g66e1443"
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.5.0 < 7.0.0"
+    }
+  ],
+  "tags": [
+    "solr",
+    "lucene",
+    "apache",
+    "search",
+    "cloud",
+    "plugins"
+  ],
+  "pdk-version": "1.14.0",
+  "template-url": "pdk-default#1.14.0",
+  "template-ref": "1.14.0-0-g1bf3a4e"
 }
