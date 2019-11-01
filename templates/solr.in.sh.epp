@@ -41,7 +41,11 @@ GC_TUNE="<%= $solr::gc_tune.join(' ') %>"
 # e.g. host1:2181,host2:2181/chroot
 # Leave empty if not using SolrCloud
 <% if $solr::zk_ensemble {-%>
+<% if $solr::zk_chroot {-%>
 ZK_HOST="<%= $solr::zk_ensemble %>/<%= $solr::zk_chroot %>"
+<% } else {-%>
+ZK_HOST="<%= $solr::zk_ensemble %>"
+<% } -%>
 <% } else {-%>
 #ZK_HOST=""
 <% } -%>
