@@ -13,7 +13,7 @@ class solr (
   Boolean $cloud,
   Boolean $upgrade,
   Optional[String] $zk_ensemble,
-  String $zk_chroot,
+  Optional[String] $zk_chroot,
   Integer $zk_timeout,
   String $solr_host,
   String $solr_time,
