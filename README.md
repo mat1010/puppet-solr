@@ -166,7 +166,7 @@ your configuration in order to actually load the custom plugins in your Solr Cor
 * `upgrade`: A flag to indicate if Solr should be automatically upgraded to a new version (see `$version`). Valid options: a boolean. Defaults to: `false`.
 * `var_dir`: Specifies the base directory for Solr configuration, data and logs. Valid options: an absolute path. Defaults to: `/var/solr`.
 * `version`: Specifies the version of Solr that should be installed or the target version for an upgrade (see `$upgrade`). Valid options: a string: Defaults to: `8.2.0`.
-* `zk_chroot`: Specifies the ZooKeeper chroot path when using Solr Cloud (see `$cloud`). Valid options: a string. Defaults to: `solrcloud`.
+* `zk_chroot`: Specifies the ZooKeeper chroot path when using Solr Cloud (see `$cloud`). Valid options: a string. Defaults to: `undef`. Optional.
 * `zk_ensemble`: Specifies the host:port information for every machine that is part of the ZooKeeper ensemble when using Solr Cloud (see `$cloud`). Valid options: a string. Optional.
 * `zk_timeout`: Specifies the timeout (in milliseconds) for connections to machines in the ZooKeeper ensemble. Valid options: an integer. Defaults to: `15000`.
 
